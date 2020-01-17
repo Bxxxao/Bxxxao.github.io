@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>136.A number that appears only once</title>
+    <url>/2020/01/17/136-A-number-that-appears-only-once/</url>
+    <content><![CDATA[<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>地址：<a href="https://leetcode-cn.com/problems/single-number/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/single-number/solution/</a></p>
+<p><strong>分析</strong><br><strong>题目有个条件可谓相当重要，即凡重复的元素最多重复一次（原话：给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次）。如果没有这个条件，那么这篇文章使用的方法不成立</strong></p>
+<p><strong>方法一：按位异或计算</strong><br>这是个非常巧妙的方法，针对这一题的特殊情况（即重复的元素最多重复一次）</p>
+<p>在运用按位异或操作符之前得先了解一下，什么是按位异或操作符？（大佬直接略过）</p>
+<p>按位操作符的字面意思很好理解，即对值的二进制格式进行处理的操作符。而异或的作用为：假设有值甲、乙，当甲乙值相等时，异或操作后结果为不等（False，0），反之，为相等（True，1）。所以按位异或操作符的释义便显而易见了：对某值的每个位上的值（0或1）进行异或操作。</p>
+<p>异或本是机器语言，满足交换律，相当于将相同的数字先异或，这样两两异或只剩下0，然后0再和最后一个数字异或得到最终的值</p>
+<p><strong>逻辑思路</strong><br>有一个数组，含有值：12，7，12。<strong>并含有一个变量甲，其值为0。</strong></p>
+<blockquote>
+</blockquote>
+<p>——————第一次：</p>
+<p>12：0 0 0 0 1 1 0 0 </p>
+<p>甲：0 0 0 0 0 0 0 0</p>
+<p>异或</p>
+<p>甲：0 0 0 0 1 1 0 0（值为12）</p>
+<p>——————第二次</p>
+<p> 7：0 0 0 0 0 1 1 1</p>
+<p>甲：0 0 0 0 1 1 0 0</p>
+<p>异或</p>
+<p>甲：0 0 0 0 1 0 1 1（值为11）</p>
+<p>——————第三次</p>
+<p>12：0 0 0 0 1 1 0 0</p>
+<p>甲：0 0 0 0 1 0 1 1</p>
+<p>异或</p>
+<p>甲：0 0 0 0 0 1 1 1（值为7）</p>
+<p>——————遍历结束</p>
+<p><strong>参考文献</strong><br>作者：magicalchao<br>链接：<a href="https://leetcode-cn.com/problems/single-number/solution/cou-yi-pian-ti-jie-hua-shuo-ti-jie-hen-hao-wan-by-/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/single-number/solution/cou-yi-pian-ti-jie-hua-shuo-ti-jie-hen-hao-wan-by-/</a><br>来源：力扣（LeetCode）</p>
+<p>** 解题代码**</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int nums[] &#x3D; &#123;4,1,2,1,2&#125;;</span><br><span class="line">		int res&#x3D;0; &#x2F; 变量甲，这里的0是有原因的不是盲目的</span><br><span class="line">		for(int i &#x3D; 0 ;i&lt;nums.length;i++) &#123;</span><br><span class="line">			res^&#x3D;nums[i]; &#x2F;&#x2F;^为异或运算符，Java语言提供按位异或运算符</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.print(res);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><em>待更新</em></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>按位异或运算</tag>
+        <tag>哈希表</tag>
+        <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>casual gossip</title>
+    <url>/2020/01/17/casual-gossip/</url>
+    <content><![CDATA[<h2 id="试着写一篇内容吧"><a href="#试着写一篇内容吧" class="headerlink" title="试着写一篇内容吧"></a>试着写一篇内容吧</h2><p>不知道是一代人的通病亦或是方法会有问题<br>“分配不来时间” / “我懒嘛” / “我在硬撑”<br>作为一个成年人不只是应该学会给自己做一些加法减法<br>情绪调控 / 能力认知 / 自我总结甚至是分清楚什么是合理对自己施压<br>为什么会有人看上去明明很轻松实际上get到许多想要的<br>或许 只有尝试过 才明白 自己道理有什么水平吧</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>casual</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/01/04/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
