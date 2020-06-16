@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>程序员的字体知识</title>
+    <url>/2020/06/16/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%AD%97%E4%BD%93%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<blockquote>
+<p>好的字体是成功的一半</p>
+</blockquote>
+<a id="more"></a>
+
+<p>程序员一天要面对屏幕很长时间，其中大部分时间是在使用终端、使用 IDE。因此，为了保证我们的身心健康，选择一款良好的字体至关重要。本文将带你了解一些我知道的文字小知识，让你为自己更好地选择字体。</p>
+<h2 id="衬体与无衬线体"><a href="#衬体与无衬线体" class="headerlink" title="衬体与无衬线体"></a>衬体与无衬线体</h2><p>衬体（Serif）是有衬线的字体，而无衬线体（sans-serif）则是没有衬线的字体。所谓衬线，即是 Windows 下 Word 文档中宋体的装饰线，它们是在笔画的起始和末端用于装饰的。无衬线体比衬体干扰成分少，简洁明了，适合用于编程。顺带一提，无衬线体在旧时代也被称作“grotesque”，因此也被称为哥特体（Gothic）。</p>
+<h2 id="等宽字体与比例字体"><a href="#等宽字体与比例字体" class="headerlink" title="等宽字体与比例字体"></a>等宽字体与比例字体</h2><p>等宽字体（Monospaced Font）是指字体宽度相同的电脑字体，而比例字体（Proportional Font）是指字体宽度不尽相同的字体。为了更好地对齐，使代码美观，你应该使用等宽字体（一般等宽字体名字都带有 mono）。值得注意的，同时包含中英文的等宽字体是指汉字与英文字母的比为 2 : 1 而非宽度相同的字体。</p>
+<h2 id="窄引号与全宽引号"><a href="#窄引号与全宽引号" class="headerlink" title="窄引号与全宽引号"></a>窄引号与全宽引号</h2><p>窄引号是指中文引号的宽度为半个汉字宽度，而全宽宽引号是指中文引号的宽度为一个汉字宽度。在编程中很少使用到中文引号，可以随个人喜好选择。</p>
+<h2 id="半宽破折号与全宽破折号"><a href="#半宽破折号与全宽破折号" class="headerlink" title="半宽破折号与全宽破折号"></a>半宽破折号与全宽破折号</h2><p>半宽破折号是指破折号的长度为标准的一半宽度，而全宽宽引号是指破折号的宽度为标准宽度。这里的破折号是指 em dashes（关于这些横杠杠的区别可以看<a href="https://zhuanlan.zhihu.com/p/31819513" target="_blank" rel="noopener">这里</a>）。在编程中较少使用，但个人比较喜欢全宽。</p>
+<h2 id="连字"><a href="#连字" class="headerlink" title="连字"></a>连字</h2><p>连字（Ligature）是指将多个符号连接成一个，比如将 &lt;= 连接成 ≤ ，属于锦上添花的小特性，可以根据个人喜好选择。</p>
+<h2 id="字形"><a href="#字形" class="headerlink" title="字形"></a>字形</h2><p>主要是针对中日韩文字，一般有以下字形：</p>
+<ul>
+<li>SC:简体中文</li>
+<li>TC：台湾繁体中文</li>
+<li>J：日文</li>
+<li>K：韩文</li>
+<li>HC：香港繁体中文</li>
+</ul>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>font</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>int正整数在内存中存储1的个数</title>
     <url>/2020/03/22/int%E6%AD%A3%E6%95%B4%E6%95%B0%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E5%AD%98%E5%82%A81%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
     <content><![CDATA[<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>地址：<a href="https://www.nowcoder.com/practice/440f16e490a0404786865e99c6ad91c9?tpId=37&amp;tqId=21238&amp;rp=0&amp;ru=/ta/huawei&amp;qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">https://www.nowcoder.com/practice/440f16e490a0404786865e99c6ad91c9?tpId=37&amp;tqId=21238&amp;rp=0&amp;ru=/ta/huawei&amp;qru=/ta/huawei/question-ranking</a></p>
