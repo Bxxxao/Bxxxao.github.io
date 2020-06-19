@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ppt平滑效果</title>
+    <url>/2020/06/19/ppt%E5%B9%B3%E6%BB%91%E6%95%88%E6%9E%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>如今的ppt也能做出很炫酷的动画效果</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>平滑切换效果可以帮助跨演示文稿的幻灯片实现流畅的动画/切换和对象移动效果，但是根据我的了解，我身边的大多数人使用的都是<em>offic 2016(家庭和学生版)</em>,而这个平滑效果是<em>2017年之后</em>才推出的，所以很多人都没有这个功能。接下来会介绍如何使用这个效果。</p>
+<h2 id="微软两套产品体系"><a href="#微软两套产品体系" class="headerlink" title="微软两套产品体系"></a>微软两套产品体系</h2><p>在介绍之前，要先了解微软两套产品体系的区别</p>
+<ul>
+<li><em>Office 2016</em>是买断截止到2016年的所有功能，并不会提供更新，一次付费，永久使用。</li>
+<li><em>Office 365</em>是按年订阅，保持更新最新的功能，订阅多久，就可以使用多久<br>对于大多数学生而言，一般都是第一种产品体系，即购买电脑之后便获得永久使用权限，平滑功能，只在<em>Office 365</em>订阅用户才有，2016版并不包含平滑。</li>
+</ul>
+<h2 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h2><p>根据微软“Office 365中的新增功能”标明的情况，想要拥有“变体”或“平滑”功能，要求满足以下两个条件：</p>
+<ol>
+<li>必须是Office 365，其他的版本不行</li>
+<li>软件版本要在6366.2036以上</li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><p>购买Office 365<br><a href="https://www.microsoft.com/zh-cn/microsoft-365/compare-all-microsoft-365-products?&activetab=tab:primaryr1" target="_blank" rel="noopener">购买链接</a><br>现可购买Office 365 或 Office2019版</p>
+</li>
+<li><p>安装iSlide插件<br><a href="https://www.islide.cc/archives/18393" target="_blank" rel="noopener">下载链接</a><br>这个插件可以说是ppt第三方插件里比较出名的了，里面涵盖了很多实用的功能，即使不是为了使用<em>平滑</em>功能，也可以下载体验一下(<del>不过这个插件的平滑效果当然没有官方出的那么好</del>)</p>
+</li>
+<li><p>激活工具<br>这个方法比较复杂，这个方法也是我在网上找到的，我没有使用这个方法，不过也写在这个供参考<br><a href="https://www.jianshu.com/p/6d0c676416e0" target="_blank" rel="noopener">看这里</a></p>
+</li>
+<li><p>取巧方法<br>这个方法取巧的地方在于：不用下载插件也不需要更新，<em>PowerPoint2016</em>在切换页面里虽然不能创建平滑，但是可以播放平滑效果。<br>所以我们只需要下载或者使用<a href="https://www.woodo.cn/?f=2313" target="_blank" rel="noopener">ppt在线制作网站</a>使用<strong>已经有平滑效果的ppt</strong>然后复制带有效果的那一页就可以了，我的2016家庭/学生版亲测可以使用。</p>
+</li>
+</ol>
+<h2 id="平滑效果"><a href="#平滑效果" class="headerlink" title="平滑效果"></a>平滑效果</h2><p><img src="https://pic2.zhimg.com/50/v2-706501ef4638f16b644ac61338ffcf87_hd.webp" alt="平滑"></p>
+]]></content>
+      <categories>
+        <category>产品</category>
+      </categories>
+      <tags>
+        <tag>ppt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>程序员的字体知识</title>
     <url>/2020/06/16/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%AD%97%E4%BD%93%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<blockquote>
