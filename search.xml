@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>网站适配夜间模式</title>
+    <url>/2020/11/21/%E7%BD%91%E7%AB%99%E9%80%82%E9%85%8D%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>保护视力要从小做起</p>
+</blockquote>
+<a id="more"></a>
+
+
+
+<h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>当今无论是IOS端还是Android端都在推行夜间模式（想当初因为苹果迟迟没有退出夜间模式而遭到大量用户批评），因此，我也想让我的博客适配夜间模式，好让自己还有读者不被闪到眼睛。</p>
+<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><ul>
+<li>CSS+JavaScript修改页面样式</li>
+<li>prefers-color-scheme 媒体查询</li>
+<li>媒体查询与样式修改相结合</li>
+</ul>
+<p>在上网查询了相关内容后，找到了现在比较流行的两种自定义夜间模式方案。</p>
+<h3 id="方案一：CSS-JavaScript修改页面样式"><a href="#方案一：CSS-JavaScript修改页面样式" class="headerlink" title="方案一：CSS+JavaScript修改页面样式"></a>方案一：CSS+JavaScript修改页面样式</h3><p>这是我在查阅前最先想到的方案，即为夜间模式写一段样式，同时也是在媒体查询出现之前大佬们使用的方法。</p>
+<p>首先可以写一段类似下面的样式：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> &#123;<span class="attribute">background</span>: <span class="number">#2f3742</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-class">.aplayer</span>&#123;<span class="attribute">background</span>: <span class="number">#2f3742</span><span class="meta">!important</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>PS：aplayer valine要加<code>!important</code>才能让CSS生效。</p>
+<p>随后可以利用JavaScript判断时间，在自己认为需要转化到夜间模式的实际为body添加.dark的样式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> nowTime = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getHours();</span><br><span class="line">	<span class="keyword">if</span>(nowTime &gt;<span class="number">18</span> || nowTime&lt;<span class="number">5</span>)&#123;</span><br><span class="line">	$(<span class="string">'body'</span>).addClass(<span class="string">'dark'</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这只是一个简单的demo，实际上是可以写的更合理的（如通过日出日落时间判断夜间模式启动）。</p>
+<p>这样的实现方式固然方便，但也有不足的地方。</p>
+<ol>
+<li>首先，这个方法是在页面加载的时候进行判断的，即如果在晚上打开我的博客，但是一直持续到第二天早上仍然没有关闭，那么博客的样式还是夜间模式的样式，也就不符合实际情况。</li>
+<li>其次，如果网络速度比较慢时，会见证博客样式从浅色变为深色，那对眼睛的冲击可太大了。</li>
+</ol>
+<h3 id="方案二：媒体查询"><a href="#方案二：媒体查询" class="headerlink" title="方案二：媒体查询"></a>方案二：媒体查询</h3><p>这也是我博客正在使用的方案。即通过<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme" target="_blank" rel="noopener">prefers-color-scheme</a>来切换样式。</p>
+<p>prefers-color-scheme媒体查询有三种结果，分别为”no-preference”未指定、”light”浅色、”dark”深色。</p>
+<p>在实际的使用中，可以将未指定和浅色结合起来，作为默认样式，与深色作为两种情况，然和为深色模式写另一段样式。</p>
+<p>编写格式大概是：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*浅色模式*/</span></span><br><span class="line">@media(prefers-color-scheme:dark)&#123;</span><br><span class="line">	<span class="comment">/*深色模式*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>实际写为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--background-color</span>: <span class="number">#ededed</span>;</span><br><span class="line">  <span class="attribute">--page-background</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">--text-color</span>: <span class="number">#212121</span>;</span><br><span class="line">  <span class="attribute">--color-alpha</span>: <span class="number">#c3423f</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme:</span> dark) &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attribute">--background-color</span>: <span class="number">#111</span>;</span><br><span class="line">    <span class="attribute">--page-background</span>: <span class="number">#212121</span>;</span><br><span class="line">    <span class="attribute">--text-color</span>: <span class="number">#ededed</span>;</span><br><span class="line">    <span class="attribute">--color-alpha</span>: <span class="number">#50a8d8</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">var</span>(--background-color);</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种方法很好地解决了方案一的痛点，但是这个方法是2020年7月底推出的，是一个比较新的方法（Chrome 76 才开始支持），所以兼容性问题是每个使用者需要考虑的问题。</p>
+<p><img src="https://blog.bill.moe/dark-mode/1.png" alt="兼容性"></p>
+<p>另外在我实际使用时，由于使用的主题中主题板块是白色的，在变为夜间模式时不仅文章字体会变得很浅，而且视觉效果也比较突兀，所以最好改一下主题板块的透明度，变得透明一点。</p>
+<p>即打开主题目录下的<code>/source/css/_schemes/&quot;</code>主题”/index,styl对<em>.post-blocks</em>进行修改，改为background:rgba(255,255,255,0.1)，0.1为透明度，可以根据需要修改。这样效果就会好一些。</p>
+<h3 id="方案三：媒体查询与JS相结合"><a href="#方案三：媒体查询与JS相结合" class="headerlink" title="方案三：媒体查询与JS相结合"></a>方案三：媒体查询与JS相结合</h3><p>这是我在网上大佬的博客里看到的。首先写一段全局的css样式</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> &#123;<span class="attribute">background</span>: <span class="number">#2f3742</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-class">.aplayer</span>&#123;<span class="attribute">background</span>: <span class="number">#2f3742</span><span class="meta">!important</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外对博客是静态博客还动态博客分别使用localStorge和cookie，并且 使用 <code>matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches</code> 判断当前环境是否暗色模式来兼容媒体查询方案 .。</p>
+<p>接着写js来与css进行配合</p>
+<p>在主题下的layout.swig文件中找到body开始标签后加上这些js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (localStorage.getItem(<span class="string">'dark'</span>) === <span class="string">'1'</span>) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>().getHours() &gt;= <span class="number">22</span> || <span class="keyword">new</span> <span class="built_in">Date</span>().getHours() &lt; <span class="number">7</span>) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (matchMedia(<span class="string">'(prefers-color-scheme: dark)'</span>).matches) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外可以加上一个模式切换的按钮</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"xm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/xm.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>按钮的css</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#xm</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease-in-out;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">3px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#xm</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#xm</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>按钮的js ,添加到body底部或者独立的js文件都可。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchNightMode</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> body = <span class="built_in">document</span>.body;</span><br><span class="line">  <span class="keyword">if</span>(body.classList.contains(<span class="string">'dark'</span>))&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.remove(<span class="string">'dark'</span>);</span><br><span class="line">    localStorage.setItem(<span class="string">'dark'</span>,<span class="string">'0'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">    localStorage.setItem(<span class="string">'dark'</span>,<span class="string">'1'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xm = <span class="built_in">document</span>.getElementById(<span class="string">"xm"</span>);</span><br><span class="line">xm.onclick = switchNightMode;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h3><ul>
+<li><a href="https://crosschannel.cc/daily/hexo%E6%B7%BB%E5%8A%A0%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F.html#main" target="_blank" rel="noopener">https://crosschannel.cc/daily/hexo%E6%B7%BB%E5%8A%A0%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F.html#main</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme</a></li>
+<li><a href="https://blog.bill.moe/dark-mode/" target="_blank" rel="noopener">https://blog.bill.moe/dark-mode/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Web</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>JavaScript</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git 常用指令</title>
     <url>/2020/11/21/git-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<blockquote>
