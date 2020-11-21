@@ -39,28 +39,28 @@
 
 
 
-<p>实际写为：</p>
+<p>实际在主题下的<code>source/css/main.styl</code>文件中写如：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--background-color</span>: <span class="number">#ededed</span>;</span><br><span class="line">  <span class="attribute">--page-background</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">--text-color</span>: <span class="number">#212121</span>;</span><br><span class="line">  <span class="attribute">--color-alpha</span>: <span class="number">#c3423f</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme:</span> dark) &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attribute">--background-color</span>: <span class="number">#111</span>;</span><br><span class="line">    <span class="attribute">--page-background</span>: <span class="number">#212121</span>;</span><br><span class="line">    <span class="attribute">--text-color</span>: <span class="number">#ededed</span>;</span><br><span class="line">    <span class="attribute">--color-alpha</span>: <span class="number">#50a8d8</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">var</span>(--background-color);</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这种方法很好地解决了方案一的痛点，但是这个方法是2020年7月底推出的，是一个比较新的方法（Chrome 76 才开始支持），所以兼容性问题是每个使用者需要考虑的问题。</p>
-<p><img src="https://blog.bill.moe/dark-mode/1.png" alt="兼容性"></p>
+<p><img src="D:%5CBlog%5CBxxxaoblog%5Cpublic%5Cimages%5Cjianrong.png" alt="兼容性"></p>
 <p>另外在我实际使用时，由于使用的主题中主题板块是白色的，在变为夜间模式时不仅文章字体会变得很浅，而且视觉效果也比较突兀，所以最好改一下主题板块的透明度，变得透明一点。</p>
 <p>即打开主题目录下的<code>/source/css/_schemes/&quot;主题&quot;/index,sty</code>l对<em>.post-blocks</em>进行修改，改为background:rgba(255,255,255,0.1)，0.1为透明度，可以根据需要修改。这样效果就会好一些。</p>
 <h3 id="方案三：媒体查询与JS相结合"><a href="#方案三：媒体查询与JS相结合" class="headerlink" title="方案三：媒体查询与JS相结合"></a>方案三：媒体查询与JS相结合</h3><p>这是我在网上大佬的博客里看到的。首先写一段全局的css样式</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> &#123;<span class="attribute">background</span>: <span class="number">#2f3742</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-class">.aplayer</span>&#123;<span class="attribute">background</span>: <span class="number">#2f3742</span><span class="meta">!important</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>另外对博客是静态博客还动态博客分别使用localStorge和cookie，并且 使用 <code>matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches</code> 判断当前环境是否暗色模式来兼容媒体查询方案 .。</p>
-<p>接着写js来与css进行配合</p>
-<p>在主题下的layout.swig文件中找到body开始标签后加上这些js</p>
+<p>另外对博客是静态博客还动态博客分别使用localStorge和cookie，并且使用 <code>matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches</code> 判断当前环境是否暗色模式来兼容媒体查询方案 .。</p>
+<p>接着写JS来与CSS进行配合</p>
+<p>在主题下的<code>layout.swig</code>文件中找到body开始标签后加上这些JS代码：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (localStorage.getItem(<span class="string">'dark'</span>) === <span class="string">'1'</span>) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>().getHours() &gt;= <span class="number">22</span> || <span class="keyword">new</span> <span class="built_in">Date</span>().getHours() &lt; <span class="number">7</span>) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (matchMedia(<span class="string">'(prefers-color-scheme: dark)'</span>).matches) &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>另外可以加上一个模式切换的按钮</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"xm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/xm.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>按钮的css</p>
+<p>按钮的CSS</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#xm</span> &#123;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span> ease-in-out;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">3px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#xm</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#xm</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>按钮的js ,添加到body底部或者独立的js文件都可。</p>
+<p>按钮的JS,添加到body底部或者独立的JS文件都可。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchNightMode</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> body = <span class="built_in">document</span>.body;</span><br><span class="line">  <span class="keyword">if</span>(body.classList.contains(<span class="string">'dark'</span>))&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.remove(<span class="string">'dark'</span>);</span><br><span class="line">    localStorage.setItem(<span class="string">'dark'</span>,<span class="string">'0'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.body.classList.add(<span class="string">'dark'</span>);</span><br><span class="line">    localStorage.setItem(<span class="string">'dark'</span>,<span class="string">'1'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xm = <span class="built_in">document</span>.getElementById(<span class="string">"xm"</span>);</span><br><span class="line">xm.onclick = switchNightMode;</span><br></pre></td></tr></table></figure>
 
 
@@ -325,8 +325,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>Leetcode</tag>
         <tag>双指针</tag>
+        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -369,9 +369,9 @@
         <category>算法</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>按位异或运算</tag>
         <tag>哈希表</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
