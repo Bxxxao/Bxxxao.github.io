@@ -1,3 +1,6 @@
+.headband {
+  display: none;
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -1192,7 +1195,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #427d8a;
+  background: #2effff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
