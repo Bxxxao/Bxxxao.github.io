@@ -56,7 +56,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.bill.moe/dark-mode/1.png">
 <meta property="article:published_time" content="2020-11-21T13:27:51.000Z">
-<meta property="article:modified_time" content="2020-11-21T14:14:33.757Z">
+<meta property="article:modified_time" content="2020-11-21T14:18:54.392Z">
 <meta property="article:author" content="Bxxxao">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="JavaScript">
@@ -250,7 +250,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-11-21 21:27:51 / Modified: 22:14:33" itemprop="dateCreated datePublished" datetime="2020-11-21T21:27:51+08:00">2020-11-21</time>
+              <time title="Created: 2020-11-21 21:27:51 / Modified: 22:18:54" itemprop="dateCreated datePublished" datetime="2020-11-21T21:27:51+08:00">2020-11-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -337,7 +337,7 @@
 <p>这种方法很好地解决了方案一的痛点，但是这个方法是2020年7月底推出的，是一个比较新的方法（Chrome 76 才开始支持），所以兼容性问题是每个使用者需要考虑的问题。</p>
 <p><img src="https://blog.bill.moe/dark-mode/1.png" alt="兼容性"></p>
 <p>另外在我实际使用时，由于使用的主题中主题板块是白色的，在变为夜间模式时不仅文章字体会变得很浅，而且视觉效果也比较突兀，所以最好改一下主题板块的透明度，变得透明一点。</p>
-<p>即打开主题目录下的<code>/source/css/_schemes/&quot;</code>主题”/index,styl对<em>.post-blocks</em>进行修改，改为background:rgba(255,255,255,0.1)，0.1为透明度，可以根据需要修改。这样效果就会好一些。</p>
+<p>即打开主题目录下的<code>/source/css/_schemes/&quot;主题&quot;/index,sty</code>l对<em>.post-blocks</em>进行修改，改为background:rgba(255,255,255,0.1)，0.1为透明度，可以根据需要修改。这样效果就会好一些。</p>
 <h3 id="方案三：媒体查询与JS相结合"><a href="#方案三：媒体查询与JS相结合" class="headerlink" title="方案三：媒体查询与JS相结合"></a>方案三：媒体查询与JS相结合</h3><p>这是我在网上大佬的博客里看到的。首先写一段全局的css样式</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> &#123;<span class="attribute">background</span>: <span class="number">#2f3742</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-class">.aplayer</span>&#123;<span class="attribute">background</span>: <span class="number">#2f3742</span><span class="meta">!important</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -358,9 +358,9 @@
 
 
 <h3 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h3><ul>
-<li><a href="https://crosschannel.cc/daily/hexo%E6%B7%BB%E5%8A%A0%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F.html#main" target="_blank" rel="noopener">https://crosschannel.cc/daily/hexo%E6%B7%BB%E5%8A%A0%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F.html#main</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme</a></li>
-<li><a href="https://blog.bill.moe/dark-mode/" target="_blank" rel="noopener">https://blog.bill.moe/dark-mode/</a></li>
+<li><em><a href="https://crosschannel.cc/daily/hexo%E6%B7%BB%E5%8A%A0%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F.html#main" target="_blank" rel="noopener">https://crosschannel.cc/daily/hexo%E6%B7%BB%E5%8A%A0%E6%9A%97%E8%89%B2%E6%A8%A1%E5%BC%8F.html#main</a></em></li>
+<li><em><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme</a></em></li>
+<li><em><a href="https://blog.bill.moe/dark-mode/" target="_blank" rel="noopener">https://blog.bill.moe/dark-mode/</a></em></li>
 </ul>
 
     </div>
