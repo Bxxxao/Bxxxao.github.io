@@ -17,7 +17,7 @@
 <li>媒体查询与样式修改相结合</li>
 </ul>
 <p>在上网查询了相关内容后，找到了现在比较流行的两种自定义夜间模式方案。</p>
-<h3 id="方案一：CSS-JavaScript修改页面样式"><a href="#方案一：CSS-JavaScript修改页面样式" class="headerlink" title="方案一：CSS+JavaScript修改页面样式"></a>方案一：CSS+JavaScript修改页面样式</h3><p>这是我在查阅前最先想到的方案，即为夜间模式写一段样式，同时也是在媒体查询出现之前大佬们使用的方法。</p>
+<h3 id="方案一：CSS-JavaScript修改页面样式"><a href="#方案一：CSS-JavaScript修改页面样式" class="headerlink" title="方案一：CSS+JavaScript修改页面样式"></a>方案一：CSS+JavaScript修改页面样式</h3><p>这是我在查阅前最先想到的方案，即为夜间模式写一段样式。</p>
 <p>首先可以写一段类似下面的样式：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> &#123;<span class="attribute">background</span>: <span class="number">#2f3742</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-class">.aplayer</span>&#123;<span class="attribute">background</span>: <span class="number">#2f3742</span><span class="meta">!important</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.dark</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -43,7 +43,6 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--background-color</span>: <span class="number">#ededed</span>;</span><br><span class="line">  <span class="attribute">--page-background</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">--text-color</span>: <span class="number">#212121</span>;</span><br><span class="line">  <span class="attribute">--color-alpha</span>: <span class="number">#c3423f</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme:</span> dark) &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attribute">--background-color</span>: <span class="number">#111</span>;</span><br><span class="line">    <span class="attribute">--page-background</span>: <span class="number">#212121</span>;</span><br><span class="line">    <span class="attribute">--text-color</span>: <span class="number">#ededed</span>;</span><br><span class="line">    <span class="attribute">--color-alpha</span>: <span class="number">#50a8d8</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">var</span>(--background-color);</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这种方法很好地解决了方案一的痛点，但是这个方法是2020年7月底推出的，是一个比较新的方法（Chrome 76 才开始支持），所以兼容性问题是每个使用者需要考虑的问题。</p>
-<p><img src="D:%5CBlog%5CBxxxaoblog%5Csource_posts%5C%E7%BD%91%E7%AB%99%E9%80%82%E9%85%8D%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F%5C1.png" alt="兼容性"></p>
 <p>另外在我实际使用时，由于使用的主题中主题板块是白色的，在变为夜间模式时不仅文章字体会变得很浅，而且视觉效果也比较突兀，所以最好改一下主题板块的透明度，变得透明一点。</p>
 <p>即打开主题目录下的<code>/source/css/_schemes/&quot;主题&quot;/index,sty</code>l对<em>.post-blocks</em>进行修改，改为background:rgba(255,255,255,0.1)，0.1为透明度，可以根据需要修改。这样效果就会好一些。</p>
 <h3 id="方案三：媒体查询与JS相结合"><a href="#方案三：媒体查询与JS相结合" class="headerlink" title="方案三：媒体查询与JS相结合"></a>方案三：媒体查询与JS相结合</h3><p>这是我在网上大佬的博客里看到的。首先写一段全局的css样式</p>
@@ -325,8 +324,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>Leetcode</tag>
         <tag>双指针</tag>
+        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -369,9 +368,9 @@
         <category>算法</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>按位异或运算</tag>
         <tag>哈希表</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
