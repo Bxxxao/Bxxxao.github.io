@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git 常用指令</title>
+    <url>/2020/11/21/git-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<blockquote>
+<p>管好自己的代码是门必修课。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>Git作为版本控制系统，在平时的使用中也是非常重要的，但是在使用过程中，发现一些语句的使用次数尤为多，在此记录一下Git常用指令</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">git config -l                                   <span class="comment">//查看配置信息</span></span><br><span class="line">git config --<span class="keyword">global</span> -l                          <span class="comment">//查看全局配置信息</span></span><br><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">'用户名'</span>           <span class="comment">//设置用户名</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">'邮箱'</span>            <span class="comment">//设置邮箱</span></span><br><span class="line">clear                                           <span class="comment">//清屏</span></span><br><span class="line"></span><br><span class="line">git init                                         <span class="comment">//创建本地git仓库</span></span><br><span class="line">git <span class="keyword">add</span> xxx                                     <span class="comment">// 把某个文件或文件夹提交到暂存区</span></span><br><span class="line">git <span class="keyword">add</span> . 或 -A                                  <span class="comment">//把当前仓库中所有最新修改的文件都提交到暂存区</span></span><br><span class="line">git status                                      <span class="comment">// 查看当前工作区文件的状态（红色代表文件只在工作区，绿色代表文件在暂存区但还没到历史区，看不见的代表文件已提交到历史区）</span></span><br><span class="line">git rm --cached xxx                              <span class="comment">//把暂存区某文件或文件夹从暂存区删除并撤回到工作区</span></span><br><span class="line">git commit -m<span class="string">'提交描述'</span>                           <span class="comment">//把暂存区提交到历史区</span></span><br><span class="line">git log                                          <span class="comment">//查看历史版本信息</span></span><br><span class="line">git reflog                                       <span class="comment">//包含回滚信息    </span></span><br><span class="line"></span><br><span class="line">git remote -v                                    <span class="comment">//查看本地仓库和哪些远程仓库保持链接</span></span><br><span class="line">git remote <span class="keyword">add</span> origin [git仓库地址]              <span class="comment">// 让本地仓库新建一个远程仓库链接（origin为链接名，可以改，但一般都叫这个）</span></span><br><span class="line">git remote rm origin                             <span class="comment">//删除名为origin的远程仓库链接</span></span><br><span class="line"></span><br><span class="line">git pull origin master                           <span class="comment">//拉取分支（如果远程仓库有些文件本地仓库没有，就先把没有的文件下到本地仓库来）origin master 可以省略</span></span><br><span class="line">git pull --rebase origin master                  <span class="comment">//合并远程文件</span></span><br><span class="line">git push origin master                           <span class="comment">//把本地仓库提交到远程仓库链接origin中（第一次需要输入github用户名和密码）    origin master 可以省略</span></span><br><span class="line">git clone [远程仓库git地址]                       <span class="comment">//把远程仓库文件下载到本地</span></span><br><span class="line">git reset --hard [回滚commit-id]                 <span class="comment">//回滚到以前的某个版本（先通过git log查看要回滚版本的commit-id）</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>fundamental</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>javascript_web基础</title>
     <url>/2020/07/02/javascript-web%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<blockquote>
@@ -60,8 +79,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>web</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
