@@ -76,8 +76,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>web</tag>
+        <tag>JavaScript</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -160,8 +160,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>web</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -325,8 +325,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>双指针</tag>
         <tag>Leetcode</tag>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -369,9 +369,9 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>Leetcode</tag>
         <tag>按位异或运算</tag>
         <tag>哈希表</tag>
+        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
