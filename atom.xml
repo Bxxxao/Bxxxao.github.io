@@ -6,7 +6,7 @@
   <link href="https://bxxxao.github.io/atom.xml" rel="self"/>
   
   <link href="https://bxxxao.github.io/"/>
-  <updated>2020-11-27T04:44:04.185Z</updated>
+  <updated>2020-11-28T03:47:48.940Z</updated>
   <id>https://bxxxao.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>竞品分析：荔枝，在线音频笔记记录及内容标记的探索</title>
+    <link href="https://bxxxao.github.io/2020/11/27/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%EF%BC%9A%E8%8D%94%E6%9E%9D%EF%BC%8C%E5%9C%A8%E7%BA%BF%E9%9F%B3%E9%A2%91%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%E5%8F%8A%E5%86%85%E5%AE%B9%E6%A0%87%E8%AE%B0%E7%9A%84%E6%8E%A2%E7%B4%A2/"/>
+    <id>https://bxxxao.github.io/2020/11/27/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%EF%BC%9A%E8%8D%94%E6%9E%9D%EF%BC%8C%E5%9C%A8%E7%BA%BF%E9%9F%B3%E9%A2%91%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95%E5%8F%8A%E5%86%85%E5%AE%B9%E6%A0%87%E8%AE%B0%E7%9A%84%E6%8E%A2%E7%B4%A2/</id>
+    <published>2020-11-27T13:15:18.000Z</published>
+    <updated>2020-11-28T03:47:48.940Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;竞品分析-荔枝，在线音频笔记记录及内容标记的探索&quot;&gt;&lt;a href=&quot;#竞品分析-荔枝，在线音频笔记记录及内容标记的探索&quot; class=&quot;headerlink&quot; title=&quot;竞品分析 | 荔枝，在线音频笔记记录及内容标记的探索&quot;&gt;&lt;/a&gt;竞品分析 | 荔枝，在线音频笔记记录及内容标记的探索&lt;/h3&gt;&lt;blockquote&gt;&lt;p&gt;荔枝，在线音频笔记记录及内容标记的探索&lt;/p&gt;&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="产品" scheme="https://bxxxao.github.io/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    <category term="竞品分析" scheme="https://bxxxao.github.io/categories/%E4%BA%A7%E5%93%81/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/"/>
+    
+    
+    <category term="产品" scheme="https://bxxxao.github.io/tags/%E4%BA%A7%E5%93%81/"/>
+    
+    <category term="随笔" scheme="https://bxxxao.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>网站适配夜间模式</title>
